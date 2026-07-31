@@ -65,7 +65,7 @@ The skill is designed for a single target paper. Use a literature-review workflo
 
 ## Worked example
 
-The companion [uPAR CAR T whole-paper analysis](examples/upar-car-t-worked-example.md) demonstrates the intended rigor:
+The companion [uPAR CAR T whole-paper analysis](WORKED_EXAMPLE.md) demonstrates the intended rigor:
 
 - a selective backward citation trace and inherited-versus-new ledger;
 - plain-language orientation followed by technical appraisal;
