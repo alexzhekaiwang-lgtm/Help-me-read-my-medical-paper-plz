@@ -7,7 +7,7 @@
 ![Worked example: 60 panels](https://img.shields.io/badge/worked_example-60_panels-7c3aed)
 ![No code or installation required](https://img.shields.io/badge/no_code_or_installation-required-16a34a)
 
-**[View the worked 60-panel sample analysis →](sample_output/uPAR_CAR_T_whole_paper_analysis_sample.md)**
+**[View the worked 60-panel sample analysis →](medical-paper-analysis-ai-context 2/sample_output/uPAR_CAR_T_whole_paper_analysis_sample.md)**
 
 Most AI paper summaries begin with the abstract and follow the authors' narrative. This project gives an AI a stricter workflow: establish the relevant prior knowledge first, inspect the actual figures and methods, identify the true experimental unit, and test whether each major claim is justified by the data.
 
