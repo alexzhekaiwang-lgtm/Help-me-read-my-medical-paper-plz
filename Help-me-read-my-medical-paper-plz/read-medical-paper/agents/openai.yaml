@@ -1,0 +1,4 @@
+interface:
+  display_name: "Read Medical Papers"
+  short_description: "Critically appraise biomedical paper evidence"
+  default_prompt: "Use $read-medical-paper to critically analyze this biomedical paper and audit its claims against the figures, tables, methods, statistics, and references."
