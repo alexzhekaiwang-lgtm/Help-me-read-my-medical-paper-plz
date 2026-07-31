@@ -3,6 +3,7 @@
 **A portable, reference-first instruction and knowledge pack for rigorous biomedical paper analysis with AI.**
 
 ![Format: Markdown](https://img.shields.io/badge/format-Markdown-000000?logo=markdown)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Knowledge modules: 12](https://img.shields.io/badge/knowledge_modules-12-2563eb)
 ![Worked example: 60 panels](https://img.shields.io/badge/worked_example-60_panels-7c3aed)
 ![No code or installation required](https://img.shields.io/badge/no_code_or_installation-required-16a34a)
@@ -148,7 +149,7 @@ The repository includes a worked sample analysis within its stated scope:
 
 > *A convergent uPAR-positive tumor ecosystem creates broad vulnerability to CAR T cell therapy*
 
-[Open the sample analysis](sample_output/uPAR_CAR_T_whole_paper_analysis_sample.md)
+[Open the sample analysis](./WORKED_EXAMPLE.md)
 
 The sample demonstrates:
 
@@ -168,7 +169,9 @@ The sample is a **format and rigor reference**, not a factual source for other p
 ```text
 .
 ├── README.md
+├── LICENSE
 ├── 00_READ_ME_FIRST.md
+├── WORKED_EXAMPLE.md
 ├── custom_gpt/
 │   └── core_instructions.md
 ├── knowledge/
@@ -185,7 +188,6 @@ The sample is a **format and rigor reference**, not a factual source for other p
 │   ├── 10_output_templates.md
 │   └── 11_common_failure_modes.md
 └── sample_output/
-    ├── uPAR_CAR_T_whole_paper_analysis_sample.md
     └── assets/upar_car_t/
         └── Figure_1 ... Figure_7
 ```
@@ -251,4 +253,4 @@ Please keep runtime guidance separate from development notes, preserve source-gr
 
 ## License
 
-This repository does not currently include a license. Before publishing it for reuse or redistribution, add the license that reflects the maintainers' intended terms. Without an explicit license, default copyright restrictions apply.
+This project is licensed under the [MIT License](./LICENSE). You may use, copy, modify, merge, publish, distribute, sublicense, and sell copies of the project, provided the copyright and license notice are preserved.
