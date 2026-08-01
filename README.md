@@ -7,25 +7,23 @@ An installable Agent Skill for rigorous, reference-aware appraisal of one biomed
 
 The skill starts from the evidence rather than the abstract's framing. It identifies the true experimental unit, audits claim-bearing figures and tables, checks methods and statistics, separates prior knowledge from new results, and shows where an inference outruns the data.
 
+> **Repository layout note:** On the current `main` branch, the project files are stored inside `help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/`. The file links and commands below use that live path.
+
 [Install](#install) · [Use](#use) · [What it checks](#what-it-checks) · [Worked example](#worked-example) · [Repository structure](#repository-structure)
 
 ## Install
 
-The distributable skill is the [`read-medical-paper/`](read-medical-paper/) directory. Install that directory, not the repository root.
+The distributable skill is the [`read-medical-paper/`](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/tree/main/help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/read-medical-paper) directory. Its entry point is [`SKILL.md`](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/blob/main/help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/read-medical-paper/SKILL.md). Install that directory, not the repository root.
 
 ### Codex user installation
 
-Copy the skill into the shared Agent Skills directory:
-
-```text
-~/.agents/skills/read-medical-paper/
-```
-
-For example, after cloning this repository:
+After cloning this repository, copy the skill into the shared Agent Skills directory:
 
 ```sh
+git clone https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz.git
+cd Help-me-read-my-medical-paper-plz
 mkdir -p ~/.agents/skills
-cp -R read-medical-paper ~/.agents/skills/
+cp -R help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/read-medical-paper ~/.agents/skills/
 ```
 
 Codex detects skill changes automatically. If the skill does not appear, restart Codex and open a new task.
@@ -38,7 +36,7 @@ To make the skill available only inside another repository, copy it to:
 <your-project>/.agents/skills/read-medical-paper/
 ```
 
-The core format follows the [Agent Skills specification](https://agentskills.io/specification). The optional [`agents/openai.yaml`](read-medical-paper/agents/openai.yaml) supplies Codex interface metadata; hosts that implement only the portable core can ignore it.
+The core format follows the [Agent Skills specification](https://agentskills.io/specification). The optional [`agents/openai.yaml`](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/blob/main/help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/read-medical-paper/agents/openai.yaml) supplies Codex interface metadata; hosts that implement only the portable core can ignore it.
 
 ## Use
 
@@ -66,9 +64,11 @@ The skill is designed for a single target paper. Use a literature-review workflo
 - Missing or unreadable evidence, without filling gaps with plausible details.
 - Prompt-like text embedded in papers or supplements, which is treated as untrusted content rather than instructions.
 
+Detailed appraisal rules are in the skill's [`references/`](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/tree/main/help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/read-medical-paper/references) directory.
+
 ## Worked example
 
-The companion [uPAR CAR T whole-paper analysis](examples/upar-car-t-worked-example.md) demonstrates the intended rigor:
+The companion [uPAR CAR T whole-paper analysis](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/blob/main/help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/examples/upar-car-t-worked-example.md) demonstrates the intended rigor:
 
 - a selective backward citation trace and inherited-versus-new ledger;
 - plain-language orientation followed by technical appraisal;
@@ -77,60 +77,50 @@ The companion [uPAR CAR T whole-paper analysis](examples/upar-car-t-worked-examp
 - figure-level verdicts and a paper-level claim-to-data audit;
 - calibrated separation of strong preclinical evidence from unproven clinical claims.
 
-The example is a format and rigor reference, not a factual source for other papers. Its 60 crops are companion assets and are intentionally excluded from the installable skill. See [asset provenance and licensing](ASSET_PROVENANCE.md).
+The example is a format and rigor reference, not a factual source for other papers. Its [60 panel crops](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/tree/main/help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/examples/upar-car-t-panels) are companion assets and are intentionally excluded from the installable skill. See [asset provenance and licensing](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/blob/main/help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/ASSET_PROVENANCE.md).
 
 ## Repository structure
 
+The current `main` branch is arranged as follows:
+
 ```text
 .
-├── ASSET_PROVENANCE.md
 ├── LICENSE
 ├── README.md
-├── read-medical-paper/
-│   ├── SKILL.md
-│   ├── agents/
-│   │   └── openai.yaml
-│   └── references/
-│       ├── clinical-trials.md
-│       ├── core-principles.md
-│       ├── figures-and-tables.md
-│       ├── mechanistic-studies.md
-│       ├── methods-and-statistics.md
-│       ├── observational-studies.md
-│       ├── output-contracts.md
-│       ├── quality-and-failure-checks.md
-│       ├── reference-map.md
-│       ├── reference-tracing.md
-│       ├── study-design-routing.md
-│       ├── systematic-reviews-and-meta-analysis.md
-│       ├── task-routing.md
-│       └── whole-paper-workflow.md
-├── examples/
-│   ├── upar-car-t-worked-example.md
-│   └── upar-car-t-panels/
-│       └── Figure_1 ... Figure_7 (60 JPEGs)
-├── evals/
-│   ├── evaluation-cases.md
-│   └── fixtures/
-│       └── synthetic-preclinical-paper.md
-└── scripts/
-    └── validate_repository.py
+├── WORKED_EXAMPLE.md                 # legacy root copy
+└── help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/
+    ├── ASSET_PROVENANCE.md
+    ├── LICENSE
+    ├── README.md
+    ├── read-medical-paper/
+    │   ├── SKILL.md
+    │   ├── agents/
+    │   │   └── openai.yaml
+    │   └── references/
+    ├── examples/
+    │   ├── upar-car-t-worked-example.md
+    │   └── upar-car-t-panels/
+    ├── evals/
+    └── scripts/
+        └── validate_repository.py
 ```
 
-The `SKILL.md` file is the concise router and workflow. Detailed domain guidance is one link away in `references/`, so hosts can load only what a request needs. The large example, evaluation fixture, and repository validator sit outside the installable boundary.
+The [`SKILL.md`](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/blob/main/help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/read-medical-paper/SKILL.md) file is the concise router and workflow. Detailed domain guidance is one link away in `references/`, so hosts can load only what a request needs. The large example, evaluation fixture, and repository validator sit outside the installable boundary.
 
 ## Validate
 
-Run the repository's standard-library-only structural checks:
+From the cloned repository root, run:
 
 ```sh
-python3 scripts/validate_repository.py
+python3 help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/scripts/validate_repository.py
 ```
 
-The validator checks the skill name and metadata, local Markdown links, exact example-image coverage, asset uniqueness, stale paths, evaluation inventory, and documented repository boundary. The skill can also be checked with the official validator bundled with OpenAI's skill creator or, when installed, with:
+The [validator](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/blob/main/help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/scripts/validate_repository.py) checks the skill name and metadata, local Markdown links, exact example-image coverage, asset uniqueness, stale paths, evaluation inventory, and documented package boundary.
+
+When installed, the skill can also be checked with:
 
 ```sh
-skills-ref validate read-medical-paper
+skills-ref validate ~/.agents/skills/read-medical-paper
 ```
 
 ## Scope and limitations
@@ -148,4 +138,4 @@ Keep repository development material outside `read-medical-paper/`, avoid host-s
 
 ## License
 
-Original project instructions, documentation, and validation code are licensed under the [MIT License](LICENSE). The 60 worked-example panel crops are adapted from a separately licensed publication and are not relicensed under MIT; see [ASSET_PROVENANCE.md](ASSET_PROVENANCE.md).
+Original project instructions, documentation, and validation code are licensed under the [MIT License](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/blob/main/LICENSE). The 60 worked-example panel crops are adapted from a separately licensed publication and are not relicensed under MIT; see [`ASSET_PROVENANCE.md`](https://github.com/alexzhekaiwang-lgtm/Help-me-read-my-medical-paper-plz/blob/main/help-me-read-my-medical-paper-plz-skill-refactor-5cb7e94/ASSET_PROVENANCE.md).
