@@ -2,6 +2,9 @@
 
 An installable Agent Skill for rigorous, reference-aware appraisal of one biomedical or medical research paper.
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Agent Skill](https://img.shields.io/badge/Agent%20Skill-SKILL.md-2563eb)
+
 The skill starts from the evidence rather than the abstract's framing. It identifies the true experimental unit, audits claim-bearing figures and tables, checks methods and statistics, separates prior knowledge from new results, and shows where an inference outruns the data.
 
 [Install](#install) · [Use](#use) · [What it checks](#what-it-checks) · [Worked example](#worked-example) · [Repository structure](#repository-structure)
@@ -25,7 +28,7 @@ mkdir -p ~/.agents/skills
 cp -R read-medical-paper ~/.agents/skills/
 ```
 
-Restart Codex or begin a new task so skill discovery runs again.
+Codex detects skill changes automatically. If the skill does not appear, restart Codex and open a new task.
 
 ### Repository-scoped installation
 
@@ -65,7 +68,7 @@ The skill is designed for a single target paper. Use a literature-review workflo
 
 ## Worked example
 
-The companion [uPAR CAR T whole-paper analysis](WORKED_EXAMPLE.md) demonstrates the intended rigor:
+The companion [uPAR CAR T whole-paper analysis](examples/upar-car-t-worked-example.md) demonstrates the intended rigor:
 
 - a selective backward citation trace and inherited-versus-new ledger;
 - plain-language orientation followed by technical appraisal;
@@ -118,13 +121,17 @@ The `SKILL.md` file is the concise router and workflow. Detailed domain guidance
 
 ## Validate
 
-Run the repository's dependency-free structural checks:
+Run the repository's standard-library-only structural checks:
 
 ```sh
 python3 scripts/validate_repository.py
 ```
 
-The validator checks the skill name and metadata, local Markdown links, exact example-image coverage, asset uniqueness, stale paths, evaluation inventory, and documented repository boundary. The skill can also be checked with the official validator bundled with OpenAI's skill creator or with `skills-ref validate` when that tool is installed.
+The validator checks the skill name and metadata, local Markdown links, exact example-image coverage, asset uniqueness, stale paths, evaluation inventory, and documented repository boundary. The skill can also be checked with the official validator bundled with OpenAI's skill creator or, when installed, with:
+
+```sh
+skills-ref validate read-medical-paper
+```
 
 ## Scope and limitations
 
